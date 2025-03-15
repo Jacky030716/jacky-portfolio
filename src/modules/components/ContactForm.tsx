@@ -47,30 +47,30 @@ export const ContactForm = () => {
   const onSubmit = async (data: ContactFormData) => {
     setIsAnimating(true);
 
+    controls.start({
+      x: [
+        0,
+        window.innerWidth * 0.2,
+        window.innerWidth * 0.5,
+        window.innerWidth * 0.7,
+      ],
+      y: [
+        0,
+        -window.innerHeight * 0.1,
+        -window.innerHeight * 0.2,
+        -window.innerHeight * 0.3,
+      ],
+      scale: [1, 1.3, 1, 0.5],
+      rotate: [0, 10, 20, 30],
+      transition: {
+        duration: 1.5,
+        ease: "linear",
+        times: [0, 0.3, 0.7, 1],
+      },
+    });
+
     try {
       await sendMail(data);
-
-      controls.start({
-        x: [
-          0,
-          window.innerWidth * 0.2,
-          window.innerWidth * 0.5,
-          window.innerWidth * 0.7,
-        ],
-        y: [
-          0,
-          -window.innerHeight * 0.1,
-          -window.innerHeight * 0.2,
-          -window.innerHeight * 0.3,
-        ],
-        scale: [1, 1.3, 1, 0.5],
-        rotate: [0, 10, 20, 30],
-        transition: {
-          duration: 1.5,
-          ease: "linear",
-          times: [0, 0.3, 0.7, 1],
-        },
-      });
 
       form.reset();
     } catch (error) {
