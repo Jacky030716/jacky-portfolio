@@ -15,6 +15,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { slideIn } from "@/constants/variants";
 import { RiTelegram2Line } from "react-icons/ri";
 import { useState } from "react";
+import { sendMail } from "@/services/sendMail";
 
 const formSchema = z.object({
   name: z.string().min(1, "Name is required"),
@@ -25,10 +26,10 @@ const formSchema = z.object({
   message: z
     .string()
     .min(1, "Please enter some message")
-    .refine((value) => value.length <= 200, {
-      message: "Message is too long",
-    }),
+    .max(200, "Message is too long"),
 });
+
+export type ContactFormData = z.infer<typeof formSchema>;
 
 export const ContactForm = () => {
   const controls = useAnimation();
@@ -43,13 +44,13 @@ export const ContactForm = () => {
     },
   });
 
-  const onSubmit = (data: z.infer<typeof formSchema>) => {
-    console.log(data);
+  const onSubmit = async (data: ContactFormData) => {
     setIsAnimating(true);
 
-    controls
-      .start({
-        // X movement: start at 0, accelerate forward with easing
+    try {
+      await sendMail(data);
+
+      controls.start({
         x: [
           0,
           window.innerWidth * 0.2,
@@ -69,19 +70,22 @@ export const ContactForm = () => {
           ease: "linear",
           times: [0, 0.3, 0.7, 1],
         },
-      })
-      .then(() => {
-        // form.reset();
-        setIsAnimating(false);
-
-        controls.start({
-          x: 0,
-          y: 0,
-          scale: 1,
-          rotate: 0,
-          transition: { duration: 0, damping: 0, stiffness: 0 },
-        });
       });
+
+      form.reset();
+    } catch (error) {
+      console.error("Form submission error:", error);
+    } finally {
+      setIsAnimating(false);
+
+      controls.start({
+        x: 0,
+        y: 0,
+        scale: 1,
+        rotate: 0,
+        transition: { duration: 0 },
+      });
+    }
   };
 
   return (
@@ -102,6 +106,7 @@ export const ContactForm = () => {
           onSubmit={form.handleSubmit(onSubmit)}
           className="space-y-8 flex flex-col"
         >
+          {/* Name Field */}
           <FormField
             name="name"
             control={form.control}
@@ -115,6 +120,8 @@ export const ContactForm = () => {
               </FormItem>
             )}
           />
+
+          {/* Email Field */}
           <FormField
             name="email"
             control={form.control}
@@ -130,6 +137,8 @@ export const ContactForm = () => {
               </FormItem>
             )}
           />
+
+          {/* Message Field */}
           <FormField
             name="message"
             control={form.control}
@@ -142,7 +151,6 @@ export const ContactForm = () => {
                   <Textarea
                     {...field}
                     rows={5}
-                    cols={30}
                     className="resize-none h-32 placeholder:text-slate-500 placeholder:text-base"
                     placeholder="Enter your message here"
                   />
@@ -152,25 +160,21 @@ export const ContactForm = () => {
             )}
           />
 
+          {/* Submit Button */}
           <button
             type="submit"
             disabled={isAnimating}
             className={`cursor-pointer font-medium rounded-full md:w-[300px] w-full py-2.5 px-8 mx-auto bg-tertiary border-b-4 active:border-b-2 border-[#2c2168] transition-colors duration-300 text-white text-base flex items-center justify-center gap-2 ${
-              isAnimating ? "opacity-80" : ""
+              isAnimating ? "opacity-80 cursor-not-allowed" : ""
             }`}
           >
             <motion.div
-              initial={{
-                x: 0,
-                y: 0,
-                scale: 1,
-                rotate: 0,
-              }}
+              initial={{ x: 0, y: 0, scale: 1, rotate: 0 }}
               animate={controls}
             >
               <RiTelegram2Line className="size-4" />
             </motion.div>
-            Send
+            {isAnimating ? "Sending..." : "Send"}
           </button>
         </form>
       </Form>

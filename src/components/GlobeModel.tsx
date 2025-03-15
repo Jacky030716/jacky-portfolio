@@ -28,6 +28,7 @@ export const GlobeModel = () => {
           globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
           backgroundColor="rgba(0,0,0,0)"
           pointsData={pointsData}
+          pointLabel="label"
           pointRadius={0.5}
           showGraticules={true}
           showAtmosphere={true}
