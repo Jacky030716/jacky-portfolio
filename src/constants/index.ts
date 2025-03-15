@@ -179,7 +179,7 @@ export const categories = [
     name: "FRONTEND",
     color: "#6366f1",
     position: {
-      desktop: [-8.5, 10, 1],
+      desktop: [-8.5, 8, 1],
       tablet: [-6.5, 6.5, 1],
       mobile: [-4, 4.5, 1],
     },
@@ -260,7 +260,7 @@ export const categories = [
     name: "BACKEND",
     color: "#22c55e",
     position: {
-      desktop: [8.5, 10, 1],
+      desktop: [8.5, 8, 1],
       tablet: [6.5, 6.5, 1],
       mobile: [4, 4.5, 1],
     },
@@ -311,7 +311,7 @@ export const categories = [
     name: "DATABASES",
     color: "#ef4444",
     position: {
-      desktop: [-8.5, -6, 1],
+      desktop: [-8.5, -8, 1],
       tablet: [-6.5, -6.5, 1],
       mobile: [-4, -4.5, 1],
     },
@@ -362,7 +362,7 @@ export const categories = [
     name: "DEVOPS & TOOLS",
     color: "#06b6d4",
     position: {
-      desktop: [8.5, -6, 1],
+      desktop: [8.5, -8, 1],
       tablet: [6, -6.5, 1],
       mobile: [4, -4.5, 1],
     },

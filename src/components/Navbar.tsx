@@ -10,7 +10,7 @@ const Navbar = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 48;
+      const isScrolled = window.scrollY > 88;
       if (isScrolled !== scrolled) {
         setScrolled(isScrolled);
       }
@@ -61,8 +61,19 @@ const Navbar = () => {
 };
 
 const NavbarContent = () => {
+  const [isActive, setIsActive] = useState("");
+
+  const handleLinkClick = (id: string) => {
+    setIsActive(id);
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
+    setIsActive("");
   };
 
   return (
@@ -81,13 +92,14 @@ const NavbarContent = () => {
       <ul className="list-none hidden sm:flex flex-row gap-8">
         {navlinks.map((link) => (
           <li key={link.id}>
-            <Link
-              prefetch
-              className={`text-secondary hover:text-white text-base font-medium cursor-pointer transition-colors duration-300`}
-              href={`#${link.id}`}
+            <button
+              className={`${
+                isActive === link.id ? "text-white" : "text-secondary"
+              } hover:text-white text-base font-medium cursor-pointer transition-colors duration-300`}
+              onClick={() => handleLinkClick(link.id)}
             >
               {link.title}
-            </Link>
+            </button>
           </li>
         ))}
       </ul>
