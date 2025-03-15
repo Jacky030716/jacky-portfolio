@@ -1,8 +1,17 @@
 import * as THREE from "three";
 import { useRef } from "react";
+import { ScreenSize, useScreenSize } from "@/hooks/useScreenSize";
 
 export const OrbitalRings = () => {
   const ringsRef = useRef<THREE.Group>(null);
+  const screenSize = useScreenSize();
+
+  const ringRadius =
+    screenSize === "desktop"
+      ? [2, 4, 6, 8]
+      : screenSize === "tablet"
+      ? [1, 2, 4, 6]
+      : [1, 2, 3, 4];
 
   const horizontalLinePoints = [
     new THREE.Vector3(-15, 0, 0), // Start point of the horizontal line
@@ -16,7 +25,7 @@ export const OrbitalRings = () => {
 
   return (
     <group ref={ringsRef} position={[0, 0, -0.5]}>
-      {[2, 4, 6, 8].map((radius, i) => (
+      {ringRadius.map((radius, i) => (
         <mesh
           key={i}
           rotation={[0, 0, 0]}

@@ -22,7 +22,7 @@ const Contact = () => {
         <h2 className="section-main">Contact Me</h2>
       </motion.div>
 
-      <div className="flex-1 w-full flex justify-between gap-4 mt-12">
+      <div className="flex-1 w-full flex max-lg:flex-col-reverse justify-between gap-4 mt-12">
         {/* Contact Form */}
         <ContactForm />
 

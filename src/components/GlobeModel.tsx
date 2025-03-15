@@ -20,13 +20,13 @@ export const GlobeModel = () => {
   ];
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full flex justify-center items-center">
       <Suspense fallback={<CanvasLoader />}>
         <Globe
-          width={700}
+          width={500}
           height={500}
-          globeImageUrl="//unpkg.com/three-globe/example/img/earth-blue-marble.jpg"
           backgroundColor="rgba(0,0,0,0)"
+          globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
           pointsData={pointsData}
           pointLabel="label"
           pointRadius={0.5}

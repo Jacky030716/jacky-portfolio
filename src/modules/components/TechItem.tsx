@@ -3,26 +3,38 @@ import React, { useRef } from "react";
 import { useFrame } from "@react-three/fiber";
 import { IconType } from "react-icons";
 import { Html, Text } from "@react-three/drei";
+import { useScreenSize } from "@/hooks/useScreenSize";
 
 interface TechItemProps {
   item: {
     name: string;
     icon: IconType;
     color: string;
-    position: number[];
+    position: {
+      desktop: number[];
+      tablet: number[];
+      mobile: number[];
+    };
   };
   expanded: boolean;
   delay: number;
 }
 
 export const TechItem = ({ item, expanded }: TechItemProps) => {
+  const screenSize = useScreenSize();
+  const isMobile = screenSize === "mobile";
+  const isTablet = screenSize === "tablet";
+
+  const itemPostion = item.position[screenSize];
+  const sphereSize = isMobile ? 0.4 : isTablet ? 0.5 : 0.6;
+
   const itemRef = useRef<THREE.Group>(null);
   const initialPos = [0, 0, 0];
 
   useFrame(() => {
     if (itemRef.current && expanded) {
       // Animate from center to final position with delay
-      const targetPos = new THREE.Vector3(...item.position);
+      const targetPos = new THREE.Vector3(...itemPostion);
       const currentPos = itemRef.current.position;
       currentPos.lerp(targetPos, 0.03);
     }
@@ -36,13 +48,13 @@ export const TechItem = ({ item, expanded }: TechItemProps) => {
     >
       {/* Add a sphere for a 3D effect */}
       <mesh castShadow receiveShadow>
-        <sphereGeometry args={[0.6, 32, 32]} />
+        <sphereGeometry args={[sphereSize, 32, 32]} />
         <meshStandardMaterial color={item.color} transparent opacity={0.9} />
       </mesh>
 
       {/* Add the icon using Html */}
       <Html position={[0, 0, 0]} center>
-        <item.icon size={24} color="white" />
+        <item.icon size={isMobile ? 10 : isTablet ? 14 : 24} color="white" />
       </Html>
 
       {/* Add the name below the sphere */}

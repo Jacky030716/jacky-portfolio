@@ -178,127 +178,225 @@ export const categories = [
   {
     name: "FRONTEND",
     color: "#6366f1",
-    position: [-8.5, 10, 1],
+    position: {
+      desktop: [-8.5, 10, 1],
+      tablet: [-6.5, 6.5, 1],
+      mobile: [-4, 4.5, 1],
+    },
     items: [
       {
         name: "React",
         icon: RiReactjsFill,
         color: "#61dafb",
-        position: [-3, 1.25, 0],
+        position: {
+          desktop: [-3, 1.25, 0],
+          tablet: [-3.25, 2.2, 0],
+          mobile: [-2.3, 1.8, 0],
+        },
       },
       {
         name: "TypeScript",
         icon: Typescript,
         color: "#3178c6",
-        position: [-8.5, 3.5, 0],
+        position: {
+          desktop: [-8.5, 3.5, 0],
+          tablet: [-6.5, 3, 0],
+          mobile: [-5.2, 2, 0],
+        },
       },
       {
         name: "ThreeJS",
         icon: SiThreedotjs,
         color: "#ffffff",
-        position: [-10.25, 1.5, 0],
+        position: {
+          desktop: [-10.25, 1.5, 0],
+          tablet: [-8, 1.2, 0],
+          mobile: [-6, 0.8, 0],
+        },
       },
       {
         name: "VueJs",
         icon: SiVuedotjs,
         color: "#41b883",
-        position: [-3, 3.5, 0],
+        position: {
+          desktop: [-3, 3.5, 0],
+          tablet: [-1.5, 2.7, 0],
+          mobile: [-1, 2.3, 0],
+        },
       },
       {
         name: "Tailwind",
         icon: Tailwind,
         color: "#7952b3",
-        position: [-6, 2, 0],
+        position: {
+          desktop: [-6, 2, 0],
+          tablet: [-5, 1.2, 0],
+          mobile: [-3.5, 1, 0],
+        },
       },
       {
         name: "NextJS",
         icon: SiNextdotjs,
         color: "#ffffff",
-        position: [-6, 5, 0],
+        position: {
+          desktop: [-6, 5, 0],
+          tablet: [-4.4, 4.2, 0],
+          mobile: [-3.6, 2.8, 0],
+        },
       },
       {
         name: "React Native",
         icon: TbBrandReactNative,
         color: "#61dbfb",
-        position: [-2.5, 5.75, 0],
+        position: {
+          desktop: [-2.5, 5.75, 0],
+          tablet: [-2, 5, 0],
+          mobile: [-2, 3.3, 0],
+        },
       },
     ],
   },
   {
     name: "BACKEND",
     color: "#22c55e",
-    position: [8.5, 10, 1],
+    position: {
+      desktop: [8.5, 10, 1],
+      tablet: [6.5, 6.5, 1],
+      mobile: [4, 4.5, 1],
+    },
     items: [
       {
         name: "NodeJS",
         icon: SiNodedotjs,
         color: "#68a063",
-        position: [6, 2, 0],
+        position: {
+          desktop: [6, 2, 0],
+          tablet: [7, 3, 0],
+          mobile: [3, 1, 0],
+        },
       },
       {
         name: "Java",
         icon: RiJavaFill,
         color: "#007396",
-        position: [8, 4, 0],
+        position: {
+          desktop: [8, 4, 0],
+          tablet: [5, 2, 0],
+          mobile: [4, 2, 0],
+        },
       },
       {
         name: "Spring Boot",
         icon: SiSpringboot,
         color: "#6db33f",
-        position: [5, 5.25, 0],
+        position: {
+          desktop: [5, 5.25, 0],
+          tablet: [5, 4, 0],
+          mobile: [2.5, 2.8, 0],
+        },
       },
       {
         name: "ASP.Net",
         icon: SiDotnet,
         color: "#512bd4",
-        position: [3.5, 3.5, 0],
+        position: {
+          desktop: [3.5, 3.5, 0],
+          tablet: [3, 3, 0],
+          mobile: [1.5, 1.8, 0],
+        },
       },
     ],
   },
   {
     name: "DATABASES",
     color: "#ef4444",
-    position: [-8.5, -6, 1],
+    position: {
+      desktop: [-8.5, -6, 1],
+      tablet: [-6.5, -6.5, 1],
+      mobile: [-4, -4.5, 1],
+    },
     items: [
       {
         name: "MongoDB",
         icon: SiMongodb,
         color: "#4db33d",
-        position: [-5.75, -2, 0],
+        position: {
+          desktop: [-5.75, -2, 0],
+          tablet: [-4.5, -1.25, 0],
+          mobile: [-3, -1, 0],
+        },
       },
       {
         name: "MySQL",
         icon: SiMysql,
         color: "#00758f",
-        position: [-8.5, -3.5, 0],
+        position: {
+          desktop: [-8.5, -3.5, 0],
+          tablet: [-6.5, -2.5, 0],
+          mobile: [-4.5, -1.5, 0],
+        },
       },
       {
         name: "Prisma",
         icon: SiPrisma,
         color: "#ffffff",
-        position: [-5.5, -5, 0],
+        position: {
+          desktop: [-5.5, -5, 0],
+          tablet: [-4.5, -4, 0],
+          mobile: [-3, -2.5, 0],
+        },
       },
       {
-        name: "Prisma",
+        name: "PostgreSQL",
         icon: PostgreSql,
         color: "#336791",
-        position: [-3, -3.35, 0],
+        position: {
+          desktop: [-3, -3.35, 0],
+          tablet: [-2.5, -2.5, 0],
+          mobile: [-1.5, -1.8, 0],
+        },
       },
     ],
   },
   {
     name: "DEVOPS & TOOLS",
     color: "#06b6d4",
-    position: [8.5, -6, 1],
+    position: {
+      desktop: [8.5, -6, 1],
+      tablet: [6, -6.5, 1],
+      mobile: [4, -4.5, 1],
+    },
     items: [
       {
         name: "GitHub",
         icon: SiGithub,
         color: "#ffffff",
-        position: [6, -1.5, 0],
+        position: {
+          desktop: [6, -1.5, 0],
+          tablet: [5, -1, 0],
+          mobile: [2.3, -1.3, 0],
+        },
       },
-      { name: "Git", icon: SiGit, color: "#f05032", position: [7, -4, 0] },
-      { name: "AWS", icon: SiAmazon, color: "#ff9900", position: [9, -2, 0] },
+      {
+        name: "Git",
+        icon: SiGit,
+        color: "#f05032",
+        position: {
+          desktop: [7, -4, 0],
+          tablet: [6, -3.5, 0],
+          mobile: [1.5, -2.8, 0],
+        },
+      },
+      {
+        name: "AWS",
+        icon: SiAmazon,
+        color: "#ff9900",
+        position: {
+          desktop: [9, -2, 0],
+          tablet: [8, -1.5, 0],
+          mobile: [3.8, -2.2, 0],
+        },
+      },
     ],
   },
 ];

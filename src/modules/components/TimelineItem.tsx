@@ -29,9 +29,7 @@ export const TimelineItem = ({
       {/* Content Box */}
       <div
         className={`flex flex-col ${
-          isLeft
-            ? "md:mr-auto md:items-end md:pr-8"
-            : "md:ml-auto md:items-start md:pl-8"
+          isLeft ? "mr-auto items-end pr-8" : "ml-auto items-start pl-8"
         } w-full md:w-1/2`}
       >
         <motion.div
@@ -41,9 +39,13 @@ export const TimelineItem = ({
           whileHover={{ scale: 1.02 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
-          <span className="text-base font-semibold text-blue-300">{date}</span>
-          <h3 className="text-2xl text-white font-bold mt-1">{title}</h3>
-          <p className="text-slate-300">{description}</p>
+          <span className="md:text-base text-sm font-semibold text-blue-300">
+            {date}
+          </span>
+          <h3 className="md:text-2xl text-lg text-white font-bold mt-1">
+            {title}
+          </h3>
+          <p className="text-slate-300 max-md:text-sm">{description}</p>
 
           <div
             className={`size-6 absolute top-1/2 transform -translate-y-1/2 bg-tertiary rotate-45 ${
