@@ -15,7 +15,7 @@ interface TechItemProps {
   delay: number;
 }
 
-export const TechItem = ({ item, expanded, delay }: TechItemProps) => {
+export const TechItem = ({ item, expanded }: TechItemProps) => {
   const itemRef = useRef<THREE.Group>(null);
   const initialPos = [0, 0, 0];
 

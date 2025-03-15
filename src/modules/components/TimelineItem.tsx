@@ -1,6 +1,5 @@
 import { motion } from "motion/react";
 import Image, { StaticImageData } from "next/image";
-import { SiStarbucks } from "react-icons/si";
 
 interface TimelineItemProps {
   title: string;

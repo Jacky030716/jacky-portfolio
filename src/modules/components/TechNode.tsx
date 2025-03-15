@@ -19,7 +19,6 @@ export const TechNode = ({
   radius,
   label,
   expanded,
-  delay = 0,
   rotation,
 }: CircleProps) => {
   const circleRef = useRef<THREE.Group>(null);

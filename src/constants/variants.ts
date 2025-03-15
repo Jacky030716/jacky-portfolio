@@ -12,11 +12,6 @@ type slideInProps = {
   duration: number;
 };
 
-type staggerProps = {
-  staggerChildren: number;
-  delayChildren?: number;
-};
-
 export const textVariant = (delay?: number) => {
   return {
     hidden: {

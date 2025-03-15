@@ -1,6 +1,5 @@
 import * as THREE from "three";
 import { useRef } from "react";
-import { useFrame } from "@react-three/fiber";
 
 export const OrbitalRings = () => {
   const ringsRef = useRef<THREE.Group>(null);

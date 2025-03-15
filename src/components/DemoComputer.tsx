@@ -1,8 +1,8 @@
 "use client";
 
 import * as THREE from "three";
-import React, { useEffect, useRef } from "react";
-import { useGLTF, useTexture, useVideoTexture } from "@react-three/drei";
+import React, { useRef } from "react";
+import { useGLTF, useTexture } from "@react-three/drei";
 
 interface DemoComputerProps {
   texture?: string;
