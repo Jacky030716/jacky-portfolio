@@ -74,7 +74,7 @@ const About = () => {
       </div>
 
       <motion.div
-        className="w-full mt-20 grid lg:grid-cols-4 sm:grid-cols-2 justify-between sm:gap-10 gap-6"
+        className="w-full mt-20 grid lg:grid-cols-4 sm:grid-cols-2 justify-center sm:gap-10 gap-6"
         initial="hidden"
         animate="show"
         variants={staggerContainer(0.1, 0.5)}
