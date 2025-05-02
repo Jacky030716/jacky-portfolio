@@ -10,9 +10,9 @@ const Tech = () => {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
-        duration: 1.5,
-        type: "spring",
+        staggerChildren: 0.2,
+        delayChildren: 0.3,
+        duration: 0.5,
       },
     },
   };
@@ -43,7 +43,7 @@ const Tech = () => {
             variants={containerVariants}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.1 }}
           >
             {programmingLanguages.map((lang, index) => (
               <TechNode key={index} icon={lang.icon} color={lang.color} />
@@ -61,7 +61,7 @@ const Tech = () => {
             variants={containerVariants}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.1 }}
           >
             {frameworks.map((framework, index) => (
               <TechNode
@@ -83,7 +83,7 @@ const Tech = () => {
             variants={containerVariants}
             initial="hidden"
             whileInView="show"
-            viewport={{ once: true, amount: 0.5 }}
+            viewport={{ once: true, amount: 0.1 }}
           >
             {tools.map((tool, index) => (
               <TechNode key={index} icon={tool.icon} color={tool.color} />
