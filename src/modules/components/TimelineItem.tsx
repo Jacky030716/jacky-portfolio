@@ -33,22 +33,24 @@ export const TimelineItem = ({
         } w-full md:w-1/2`}
       >
         <motion.div
-          className={`relative flex flex-col gap-3 bg-tertiary min-w-[35vw] rounded-lg p-6 ${
+          className={`relative flex flex-col gap-3 bg-tertiary dark:bg-gray-100 min-w-[35vw] rounded-lg p-6 ${
             isLeft ? "mr-12" : "ml-6"
           }`}
           whileHover={{ scale: 1.02 }}
           transition={{ type: "spring", stiffness: 300 }}
         >
-          <span className="md:text-base text-sm font-semibold text-blue-300">
+          <span className="md:text-base text-sm font-semibold text-blue-300 dark:text-blue-800">
             {date}
           </span>
-          <h3 className="md:text-2xl text-lg text-white font-bold mt-1">
+          <h3 className="md:text-2xl text-lg text-white dark:text-black font-bold mt-1">
             {title}
           </h3>
-          <p className="text-slate-300 max-md:text-sm">{description}</p>
+          <p className="text-slate-300 dark:text-slate-900 max-md:text-sm">
+            {description}
+          </p>
 
           <div
-            className={`size-6 absolute top-1/2 transform -translate-y-1/2 bg-tertiary rotate-45 ${
+            className={`size-6 absolute top-1/2 transform -translate-y-1/2 bg-tertiary rotate-45 dark:bg-gray-100 ${
               isLeft ? "-right-3" : "-left-3"
             }`}
           />

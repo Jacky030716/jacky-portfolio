@@ -43,7 +43,7 @@ const Project = () => {
       </motion.div>
 
       <div className="grid lg:grid-cols-2 grid-cols-1 mt-12 gap-5 w-full">
-        <div className="flex flex-col h-fit gap-5 relative sm:p-10 sm:py-10 py-6 px-5 rounded-xl shadow-md shadow-slate-700">
+        <div className="flex flex-col h-fit gap-5 relative sm:p-10 sm:py-10 py-6 px-5 rounded-xl shadow-md shadow-slate-700 dark:shadow-slate-200 dark:bg-slate-200/50">
           <div className="absolute top-0 right-0">
             <img
               src={currentProject.spotlight}
@@ -66,7 +66,7 @@ const Project = () => {
           </div>
 
           <div className="flex flex-col gap-5 text-white my-5">
-            <motion.p className="text-white text-2xl font-semibold ">
+            <motion.p className="text-secondary text-2xl font-semibold ">
               {currentProject.title}
             </motion.p>
             <p className="sm:text-base text-sm text-slate-400">
@@ -90,12 +90,12 @@ const Project = () => {
 
             <Link
               prefetch
-              className="z-10 flex items-center gap-2 cursor-pointer text-slate-400 group"
+              className="z-10 flex items-center gap-2 cursor-pointer text-slate-400 dark:text-slate-700 group"
               href={currentProject.href}
               target="_blank"
               rel="noreferrer"
             >
-              <p className="group-hover:text-white transition-colors duration-150">
+              <p className="group-hover:text-white dark:group-hover:text-black transition-colors duration-150">
                 Check Live Site
               </p>
               <BsArrowUpRight className="" />
@@ -104,13 +104,13 @@ const Project = () => {
 
           <div className="flex justify-between items-center mt-7">
             <button
-              className="text-white hover:scale-120 transition-transform duration-300 cursor-pointer border rounded-full flex items-center justify-center sm:p-2.5 p-1.5"
+              className="text-white dark:text-black dark:border-black hover:scale-120 transition-transform duration-300 cursor-pointer border rounded-full flex items-center justify-center sm:p-2.5 p-1.5"
               onClick={() => handleNavigation("previous")}
             >
               <BsArrowLeft />
             </button>
             <button
-              className="text-white hover:scale-120 transition-transform duration-300 cursor-pointer border rounded-full flex items-center justify-center sm:p-2.5 p-1.5"
+              className="text-white dark:text-black dark:border-black hover:scale-120 transition-transform duration-300 cursor-pointer border rounded-full flex items-center justify-center sm:p-2.5 p-1.5"
               onClick={() => handleNavigation("next")}
             >
               <BsArrowRight />

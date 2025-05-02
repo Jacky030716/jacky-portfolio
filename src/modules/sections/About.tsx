@@ -24,11 +24,11 @@ const ServiceCard = ({ title, icon, index }: ServiceCardProps) => {
           delay: 0.5 * index,
           duration: 0.75,
         })}
-        className="w-full green-pink-gradient p-[1px] rounded-[20px] shadow-card"
+        className="w-full green-pink-gradient dark:border-slate-800 p-[1px] rounded-[20px] shadow-card"
       >
-        <div className="bg-tertiary rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col">
+        <div className="bg-tertiary dark:bg-slate-200 rounded-[20px] py-5 px-12 min-h-[280px] flex justify-evenly items-center flex-col">
           <Image src={icon} alt="title" className="size-20 object-cover" />
-          <h3 className="text-white text-xl font-semibold text-center">
+          <h3 className="text-white dark:text-black text-xl font-semibold text-center">
             {title}
           </h3>
         </div>
@@ -59,7 +59,7 @@ const About = () => {
             delay: 0.5,
             duration: 2.5,
           })}
-          className="mt-4 text-secondary text-lg leading-[30px]"
+          className="mt-4 text-secondary md:text-lg text-base sm:text-sm leading-[30px]"
         >
           I am a dedicated full-stack developer with extensive experience in
           creating modern web applications. My expertise lies in leveraging
@@ -74,7 +74,7 @@ const About = () => {
       </div>
 
       <motion.div
-        className="w-full mt-20 grid lg:grid-cols-4 grid-cols-2 justify-between sm:gap-10 gap-6"
+        className="w-full mt-20 grid lg:grid-cols-4 sm:grid-cols-2 justify-between sm:gap-10 gap-6"
         initial="hidden"
         animate="show"
         variants={staggerContainer(0.1, 0.5)}
@@ -83,34 +83,6 @@ const About = () => {
           <ServiceCard key={service.title} index={index} {...service} />
         ))}
       </motion.div>
-
-      <Link
-        href="https://drive.google.com/uc?export=download&id=1vk1w0nnnEh-g5daZ1ph1sILKvko3vIH3"
-        rel="noopener noreferrer"
-        className="mx-auto"
-      >
-        <motion.button
-          initial={{
-            opacity: 0,
-            scale: 0,
-          }}
-          whileInView={{
-            opacity: 1,
-            scale: 1,
-          }}
-          whileHover={{
-            scale: 1.05,
-          }}
-          transition={{
-            duration: 0.5,
-            bounce: 0.5,
-          }}
-          className="border-[1.5px] transition-colors duration-200 text-white py-3 px-6 mt-12 rounded-full cursor-pointer flex items-center gap-2 group"
-        >
-          <FaFilePdf className="size-4 group-active:rotate-360 duration-1000 transition-transform" />
-          Download Resume{" "}
-        </motion.button>
-      </Link>
     </section>
   );
 };

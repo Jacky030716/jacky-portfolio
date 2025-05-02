@@ -99,7 +99,7 @@ export const ContactForm = () => {
         delay: 0.5,
         duration: 0.8,
       })}
-      className="flex-1 shadow-sm shadow-slate-700 rounded-lg p-12"
+      className="flex-1 shadow-sm shadow-slate-700 dark:shadow-slate-300 rounded-lg md:p-12 p-4"
     >
       <Form {...form}>
         <form

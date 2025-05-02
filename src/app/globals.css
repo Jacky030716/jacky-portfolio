@@ -160,19 +160,19 @@ body {
   }
 
   .hero-main {
-    @apply font-black text-white lg:text-[80px] sm:text-[60px] text-[40px] lg:leading-[98px] mt-2
+    @apply font-black text-white dark:text-black lg:text-[80px] sm:text-[60px] text-[40px] lg:leading-[98px] mt-2
   }
 
   .hero-sub {
-    @apply text-[#dfd9ff] font-medium lg:text-[30px] sm:text-[26px] text-[16px] lg:leading-[40px]
+    @apply text-[#dfd9ff] dark:text-zinc-800 font-medium lg:text-[30px] sm:text-[26px] text-[16px] lg:leading-[40px]
   }
 
   .section-main {
-    @apply text-white font-black md:text-[60px] sm:text-[50px] text-[30px]
+    @apply text-white dark:text-black font-black md:text-[60px] sm:text-[50px] text-[30px]
   }
 
   .section-sub {
-    @apply sm:text-[18px] text-[14px] text-[#aaa6c3] uppercase tracking-wider
+    @apply sm:text-[18px] text-[14px] text-[#aaa6c3] dark:text-zinc-800 uppercase tracking-wider
   }
 }
 

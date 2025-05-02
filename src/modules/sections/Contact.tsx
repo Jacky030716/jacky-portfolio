@@ -27,7 +27,7 @@ const Contact = () => {
         <ContactForm />
 
         {/* 3D Phone Model */}
-        <div className="flex-1">
+        <div className="md:block hidden flex-1">
           <GlobeModel />
         </div>
       </div>

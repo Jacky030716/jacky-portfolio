@@ -8,7 +8,7 @@ import Footer from "@/modules/sections/Footer";
 
 export default function Home() {
   return (
-    <main className="container-space w-full flex flex-col gap-12">
+    <main className="container-space w-full flex flex-col gap-12 dark:bg-white bg-primary">
       <Hero />
       <About />
       <Tech />

@@ -1,57 +1,30 @@
-import * as THREE from "three";
-import { Text } from "@react-three/drei";
-import { useRef } from "react";
-import { useFrame } from "@react-three/fiber";
-
-interface CircleProps {
-  position: number[];
-  rotation?: [number, number, number];
-  color: string;
-  radius: number;
-  label: string;
-  expanded: boolean;
-  delay?: number;
-}
+import { motion } from "motion/react";
 
 export const TechNode = ({
-  position,
+  icon: Icon,
   color,
-  radius,
-  label,
-  expanded,
-  rotation,
-}: CircleProps) => {
-  const circleRef = useRef<THREE.Group>(null);
-  const initialPos = [0, 0, 0];
-
-  useFrame(() => {
-    if (circleRef.current && expanded) {
-      // Animate from center to final position
-      const targetPos = new THREE.Vector3(...position);
-      const currentPos = circleRef.current.position;
-      currentPos.lerp(targetPos, 0.05);
-    }
-  });
+  size = 32,
+}: {
+  icon: any;
+  color: string;
+  size?: number;
+}) => {
+  const itemVariants = {
+    hidden: { opacity: 0, scale: 0.8 },
+    show: {
+      opacity: 1,
+      scale: 1,
+      transition: { duration: 0.4, ease: "easeOut" },
+    },
+  };
 
   return (
-    <group
-      ref={circleRef}
-      position={initialPos as [number, number, number]}
-      rotation={rotation || ([0, 0, 0] as [number, number, number])}
+    <motion.div
+      className="bg-zinc-800 dark:bg-white rounded-2xl p-4 shadow-md hover:shadow-xl"
+      whileHover={{ scale: 1.15, rotate: 3 }}
+      variants={itemVariants}
     >
-      <mesh>
-        <circleGeometry args={[radius, 32]} />
-        <meshStandardMaterial color={color} transparent opacity={0.8} />
-      </mesh>
-      <Text
-        position={[0, 0, 0.1]}
-        fontSize={radius * 0.5}
-        color="white"
-        anchorX="center"
-        anchorY="middle"
-      >
-        {label}
-      </Text>
-    </group>
+      <Icon size={size} color={color} />
+    </motion.div>
   );
 };
